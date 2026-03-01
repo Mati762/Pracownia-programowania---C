@@ -52,12 +52,56 @@ void zadanie5() {
     printf("\nLitery w odwrotnej kolejności: %c %c\n", litera2, litera1);
 }
 
+//Napisz program, który prosi użytkownika o wprowadzenie jednej liczby zmiennoprzecinkowej, a następnie podwaja jej wartość i wypisuje wynik.
+void zadanie6(){
+    double liczba1;
+    printf("Podaj liczbe zmienoprzecinkowa: ");
+    scanf("%lf", &liczba1);
+    printf("\nPodwojona liczba: %lf\n", liczba1 * 2);
+
+}
+
+//Utwórz program, który wczytuje od użytkownika liczbę zmiennoprzecinkową reprezentującą kwotę w dolarach, a następnie wypisuje, ile to jest euro, przyjmując stały kurs wymiany (np. 1 dolar = 0.85 euro).
+void zadanie7(){
+    double dolar;
+    printf("Podaj kwote w dolarach: ");
+    scanf("%lf", &dolar);
+    printf("Kwota po przewalutowaniu na euro: %.2lf\n", dolar * 0.85);
+}
+
+// Napisz program, który wyświetla na ekranie tekst: To jest cytat: "Czesto uzywamjezyka C.". Upewnij się, że znaki cudzysłowu są poprawnie wyświetlane jako część napisu
+void zadanie8(){
+    char cytat[] = "To jest cytat: \"Czesto uzywam jezyka C.\"";
+    printf("%s", cytat);
+}
+
+// Stwórz program, który wypisuje na standardowe wyjście ścieżkę do folderu w systemie Windows, np. C:\Program Files\MojaAplikacja\ (na sztywno, bez pobierania czegoś z systemu) lub C:\\Program Files\\MojaAplikacja\\.
+void zadanie9(){
+    printf("Sciezka do folderu: C:\\Program Files\\MojaAplikacja\\");
+}
+
+// Zaprojektuj program, który pokazuje, jak wypisać na ekranie następujący tekst: Specjalne znaki: \t (tabulacja), \n (nowa linia), % (procent), \\ (ukosnik wsteczny)..
+void zadanie10(){
+    printf("Specjalne znaki: \\t (tabulacja), \\n (nowa linia), %% (procent), \\\\ (ukosnik wsteczny).");
+}
+
+// Napisz program, który wczytuje ze standardowego wejścia dwie liczby wymierne reprezentujące długości boków trójkąta prostokątnego. Następnie oblicz i wyświetl długość przeciwprostokątnej.
+void zadanie11(){
+
+}
+
 int main() {
     // zadanie1();
     // zadanie2();
     // zadanie3();
     // zadanie4();
     // zadanie5();
+    // zadanie6();
+    // zadanie7();
+    // zadanie8();
+    // zadanie9();
+    // zadanie10();
+    zadanie11();
 
     return 0;
 }
