@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 
 
@@ -87,9 +88,39 @@ void zadanie10(){
 
 // Napisz program, który wczytuje ze standardowego wejścia dwie liczby wymierne reprezentujące długości boków trójkąta prostokątnego. Następnie oblicz i wyświetl długość przeciwprostokątnej.
 void zadanie11(){
-
+    double bok1, bok2;
+    printf("Podaj liczbe: ");
+    scanf("%lf", &bok1);
+    printf("Podaj liczbe: ");
+    scanf("%lf", &bok2);
+    printf("Dlugosc przeciwprostokatnej: %.2lf", sqrt(pow(bok1, 2) + pow(bok2, 2)));
 }
 
+// Napisz program, który wczytuje ze standardowego wejścia całkowitą i wypisuje na standardowym wyjściu jej wartość bezwzględną.
+void zadanie12(){
+    int liczba;
+    printf("Podaj liczbe: ");
+    scanf("%d", &liczba);
+    printf("Wartosc bezwgledna to: %d", abs(liczba));
+}
+
+// Napisz program, który wczytuje ze standardowego wejścia zmiennoprzecinkową i wypisuje na standardowym wyjściu jej wartość bezwzględną.
+void zadanie13(){
+    double liczba;
+    printf("Podaj liczbe: ");
+    scanf("%lf", &liczba);
+    printf("Wartosc bezwgledna to: %lf", fabs(liczba));
+}
+
+// Znajdź przykład i wyświetl na standardowym wyjściu, kiedy dodawanie liczb zmiennoprzecinowych nie jest łączne.
+void zadanie14(){
+    double a = 1e20;
+    double b = -1e20;
+    double c = 3.14;
+
+    printf("Wynik (a + b) + c = %lf\n", (a + b) + c);
+    printf("Wynik a + (b + c) = %lf\n", a + (b + c));
+}
 int main() {
     // zadanie1();
     // zadanie2();
@@ -101,7 +132,10 @@ int main() {
     // zadanie8();
     // zadanie9();
     // zadanie10();
-    zadanie11();
+    // zadanie11();
+    // zadanie12();
+    // zadanie13();
+    // zadanie14();
 
     return 0;
 }
