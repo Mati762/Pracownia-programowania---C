@@ -165,7 +165,23 @@ void zadanie13() {
 
 // Zadanie 14
 void zadanie14() {
+    double a = 10;
+    double b = 20;
+    double C = 5;
+    double kat_rad = C * (3.14159 / 180); // zmiana stopni na radiany
 
+    printf("Pole trojkata to: %lf", 0.5 * (a * b * kat_rad));
+}
+
+// zadanie15()
+void zadanie15() {
+    double x, wynik;
+
+    printf("Podaj bardzo mala liczbe x (np. 0.006): ");
+    scanf("%lf", &x);
+    wynik = 1.0 + (1.0 / 3.0) * x;
+
+    printf("Przyblizony pierwiastek to: %lf", wynik);
 }
 
 int main()
@@ -186,6 +202,7 @@ int main()
     // zadanie12();
     // zadanie13();
     // zadanie14();
+    // zadanie15();
 
     return 0;
 }
