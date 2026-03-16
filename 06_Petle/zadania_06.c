@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <math.h>
 
-/*
-// Zadanie1.Napisz program, który wyœwietla wszystkie liczby ca³kowite od 1 do 100, u¿ywaj¹c pêtli for.
+
+// Zadanie1.Napisz program, ktÃ³ry wyÅ›wietla wszystkie liczby caÅ‚kowite od 1 do 100, uÅ¼ywajÄ…c pÄ™tli for.
 int main(){
     for(int i = 1; i <= 100 ;i++) {
         printf("%d\n", i);
@@ -11,12 +11,9 @@ int main(){
 
     return 0;
 }
-*/
 
 
-/*
-
-// Zadanie2.Utwórz program, który prosi u¿ytkownika o wprowadzenie liczby ca³kowitej n, a nastêpnie wyœwietla sumê wszystkich liczb ca³kowitych od 1 do n u¿ywaj¹c pêtli while.
+// Zadanie2.UtwÃ³rz program, ktÃ³ry prosi uÅ¼ytkownika o wprowadzenie liczby caÅ‚kowitej n, a nastÄ™pnie wyÅ›wietla sumÄ™ wszystkich liczb caÅ‚kowitych od 1 do n uÅ¼ywajÄ…c pÄ™tli while.
 int main(){
     int n;
     int i = 1;
@@ -32,10 +29,8 @@ int main(){
 
     return 0;
 }
-*/
 
-/*
-// Zadanie3. Napisz program, który czyta od u¿ytkownika liczby ca³kowite do momentu wprowadzenia zera i nastêpnie wyœwietla sumê wszystkich wprowadzonych liczb dodatnich oraz sumê wszystkich liczb ujemnych (osobno), u¿ywaj¹c pêtli do-while.
+// Zadanie3. Napisz program, ktÃ³ry czyta od uÅ¼ytkownika liczby caÅ‚kowite do momentu wprowadzenia zera i nastÄ™pnie wyÅ›wietla sumÄ™ wszystkich wprowadzonych liczb dodatnich oraz sumÄ™ wszystkich liczb ujemnych (osobno), uÅ¼ywajÄ…c pÄ™tli do-while.
 int main(){
     int liczba;
     int suma1 = 0;
@@ -55,10 +50,10 @@ int main(){
     printf("Suma2: %d\n", suma2);
     return 0;
 }
-*/
 
-/*
-// Zadanie4. Stwórz program, który oblicza i wyœwietla silniê podanej przez u¿ytkownika nieujemnej  liczby ca³kowitej, u¿ywaj¹c pêtli for.
+
+
+// Zadanie4. StwÃ³rz program, ktÃ³ry oblicza i wyÅ›wietla silniÄ™ podanej przez uÅ¼ytkownika nieujemnej  liczby caÅ‚kowitej, uÅ¼ywajÄ…c pÄ™tli for.
 int main(){
     int liczba;
     int silnia = 1;
@@ -78,11 +73,11 @@ int main(){
     return 0;
 }
 
-*/
 
 
-/*
-// Zadanie5. Napisz program, który wyœwietla pierwszych 10 liczb ci¹gu Fibonacciego, u¿ywaj¹c pêtli while.
+
+
+// Zadanie5. Napisz program, ktÃ³ry wyÅ›wietla pierwszych 10 liczb ciÄ…gu Fibonacciego, uÅ¼ywajÄ…c pÄ™tli while.
 int main(){
     int a = 0;
     int b = 1;
@@ -104,10 +99,10 @@ int main(){
     return 0;
 }
 
-*/
 
-/*
-// Zadanie6. Napisz program, który prosi u¿ytkownika o wprowadzenie dodatniej liczby ca³kowitej n, a nastêpnie oblicza i wyœwietla [Vn] (czêœæ ca³kowita/pod³oga pierwiastka kwadratowego).
+
+
+// Zadanie6. Napisz program, ktÃ³ry prosi uÅ¼ytkownika o wprowadzenie dodatniej liczby caÅ‚kowitej n, a nastÄ™pnie oblicza i wyÅ›wietla [Vn] (czÄ™Å›Ä‡ caÅ‚kowita/podÅ‚oga pierwiastka kwadratowego).
 int main() {
     int n;
     int i = 0;
@@ -129,7 +124,7 @@ int main() {
 
     return 0;
 }
-*/
+
 
 // Zadanie7.
 int main() {
@@ -152,5 +147,94 @@ int main() {
     return 0;
 }
 
+// Zadanie8.
+int main() {
+   int poprzednia, obecna, nastepna;
+   int spelnione_warunki = 0;
+
+   printf("Podaj liczbe nr 1: ");
+   scanf("%d", &poprzednia);
+   printf("Podaj liczbe nr 2: ");
+   scanf("%d", &obecna);
+
+   for (int i = 3; i <= 10; i++) {
+       printf("Podaj liczbe nr %d: ", i);
+       scanf("%d", &nastepna);
+       if (2 * obecna < poprzednia + nastepna) {
+           spelnione_warunki++;
+       }
+       poprzednia = obecna;
+       obecna = nastepna;
+   }
+   printf("Ilosc elementow spelniajacych warunek: %d\n", spelnione_warunki);
+   return 0;
+}
+
+
+
+
+// Zadanie10.
+int main() {
+   int n;
+   printf("Podaj liczbe calkowita n: ");
+   scanf("%d", &n);
+   printf("Dzielniki liczby %d to: ", n);
+   for (int i = 2; i <= n / 2; i++) {
+       if (n % i == 0) {
+           printf("%d ", i);
+       }
+   }
+   printf("\n");
+
+   return 0;
+}
+
+
+
+// Zadanie11.
+int main() {
+   int n;
+   int suma = 0;
+   printf("Podaj liczbe calkowita: ");
+   scanf("%d", &n);
+   if (n < 0) {
+       n = -n;
+   }
+   printf("Cyfry od konca: ");
+   if (n == 0) {
+       printf("0");
+   }
+   while (n > 0) {
+       int cyfra = n % 10;
+       printf("%d ", cyfra);
+       suma = suma + cyfra;
+       n = n / 10;
+   }
+   printf("\nSuma cyfr: %d\n", suma);
+   return 0;
+}
+
+
+// Zadanie12.
+int main() {
+    int a;
+    int b;
+
+    printf("Podaj liczbe a: ");
+    scanf("%d", &a);
+    printf("Podaj liczbe b: ");
+    scanf("%d", b);
+
+    while (a != b) {
+        if( a > b) {
+            a - b;
+        }else {
+            b - a;
+        }
+    }
+    printf("%d", a);
+
+    return 0;
+}
 
 
