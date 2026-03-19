@@ -215,26 +215,156 @@ int main() {
 }
 
 
-// Zadanie12.
-int main() {
-    int a;
-    int b;
 
-    printf("Podaj liczbe a: ");
+// Zadanie 12
+int main() {
+    int a, b;
+
+    printf("Podaj a: ");
     scanf("%d", &a);
-    printf("Podaj liczbe b: ");
-    scanf("%d", b);
+    printf("Podaj b: ");
+    scanf("%d", &b);
 
     while (a != b) {
-        if( a > b) {
-            a - b;
-        }else {
-            b - a;
+        if (a > b) {
+            a = a - b;
+        } else {
+            b = b - a;
         }
     }
-    printf("%d", a);
+
+    printf("NWD to: %d\n", a);
 
     return 0;
 }
 
 
+
+// Zadanie 13
+
+int main() {
+    int a, b, reszta;
+
+    printf("Podaj a: ");
+    scanf("%d", &a);
+    printf("Podaj b: ");
+    scanf("%d", &b);
+
+    while (b != 0) {
+        reszta = a % b;
+        a = b;
+        b = reszta;
+    }
+
+    printf("NWD to: %d\n", a);
+
+    return 0;
+}
+
+
+
+
+// Zadanie 14
+int main() {
+    int n;
+    int pierwsza = 1;
+
+    printf("Podaj liczbe: ");
+    scanf("%d", &n);
+
+    if (n < 2) {
+        pierwsza = 0;
+    } else {
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) {
+                pierwsza = 0;
+                break;
+            }
+        }
+    }
+
+    if (pierwsza == 1) {
+        printf("Liczba jest pierwsza\n");
+    } else {
+        printf("Liczba nie jest pierwsza\n");
+    }
+
+    return 0;
+}
+
+
+
+// Zadanie 15
+int main() {
+    int kwota;
+    int m5 = 0, m2 = 0, m1 = 0;
+
+    printf("Podaj kwote do wydania: ");
+    scanf("%d", &kwota);
+
+    while (kwota >= 5) {
+        kwota = kwota - 5;
+        m5++;
+    }
+
+    while (kwota >= 2) {
+        kwota = kwota - 2;
+        m2++;
+    }
+
+    while (kwota >= 1) {
+        kwota = kwota - 1;
+        m1++;
+    }
+
+    printf("Monety 5: %d\n", m5);
+    printf("Monety 2: %d\n", m2);
+    printf("Monety 1: %d\n", m1);
+
+    return 0;
+}
+
+
+
+
+//Zadanie 16
+int main() {
+    double a;
+
+    printf("Podaj liczbe a: ");
+    scanf("%lf", &a);
+
+    double x = a / 2.0;
+
+    for (int i = 0; i < 10; i++) {
+        x = (x + a / x) / 2.0;
+    }
+
+    printf("Przyblizony pierwiastek: %lf\n", x);
+
+    return 0;
+}
+
+
+
+// Zadanie 17
+int main() {
+    int stopien;
+    double x, wspolczynnik, wynik = 0.0;
+
+    printf("Podaj stopien wielomianu: ");
+    scanf("%d", &stopien);
+
+    printf("Podaj wartosc x: ");
+    scanf("%lf", &x);
+
+    for (int i = 0; i <= stopien; i++) {
+        printf("Podaj wspolczynnik: ");
+        scanf("%lf", &wspolczynnik);
+        wynik = wynik * x + wspolczynnik;
+    }
+
+    printf("Wynik obliczen: %lf\n", wynik);
+
+    return 0;
+}
