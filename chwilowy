@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+int zadanie1() {
+    printf("%zu\n", sizeof(int));
+    printf("%zu\n", sizeof(int*));
+    return 0;
+
+}
+
+// Zadanie 2
+int sum(int a, int b) {
+    printf("Wynik dodawania to: %d\n", a + b);
+    return 0;
+}
+
+int sumVals(int *a, int *b) {
+    return *a + *b;
+}
+
+int addPtr(int *a, int *b, int *wynik) {
+    *wynik = *a + *b;
+}
+
+//Zadanie 3
+int copyInt(int x,int *w) {
+    *w = x;
+}
+
+
+//Zadanie 6
+float *initFloats(){
+    float *ptr = (float*)malloc(3 * sizeof(float));
+    if (ptr == NULL) {
+        printf("Blad alokacji pamieci\n");
+        return NULL;
+    }
+
+    *ptr = 4.5;
+    *(ptr + 1) = 2.3;
+    *(ptr + 2) = -4.2;
+
+    return ptr;
+}
+
+// Zadanie 9
+int sqrCopy(int *jedna, int *druga) {
+    
+}
+
+
+int main() {
+    //zadanie1();
+    //Zadanie 2
+    sum(3, 2);
+
+
+    int liczba1 = 15;
+    int liczba2 = 25;
+    int wynik = sumVals(&liczba1, &liczba2);
+    printf("Suma wartosci %d oraz %d to: %d\n", liczba1, liczba2, wynik);
+
+
+    int x = 12;
+    int y = 8;
+    int suma = 0;
+    addPtr(&x, &y, &suma);
+    printf("Wynik to: %d\n", suma);
+
+    // Zadanie 3
+    int r = 14;
+    int r2 = 0;
+    printf("Przed kopiowaniem: cel = %d\n", r2);
+    copyInt(r, &r2);
+    printf("Po kopiowaniu: %d\n", r2);
+
+    // Zadanie 6
+    float *wynik4 = initFloats();
+    if (wynik4 != NULL) {
+        printf("Wartosc 1: %.1f\n", *wynik4);
+        printf("Wartosc 2: %.1f\n", *(wynik4 + 1));
+        printf("Wartosc 3: %.1f\n", *(wynik4 + 2));
+
+        free(wynik4);
+    }
+    return 0;
+}
