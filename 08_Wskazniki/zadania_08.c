@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 
 
@@ -68,9 +69,56 @@ float *initFloats(){
     return ptr;
 }
 
-// Zadanie 9
-int sqrCopy(int *jedna, int *druga) {
+//Zadanie 7
+float* initFlts(){
+    float *zm = (float*)malloc(4 * sizeof(float));
+    if (zm == NULL) {
+        printf("Blad alokacji pamieci\n");
+        return NULL;
+    }
 
+    *zm = 0.5;
+    *(zm + 1) = 1.5;
+    *(zm + 2) = 2.5;
+    *(zm + 3) = 3.5;
+
+    return (zm + 3);
+}
+
+// Zadanie 8
+int sumToPtr(const int *a, const int *b, int *c) {
+    *c = *a + *b;
+}
+
+// Zadanie 10
+double subPtrs(const double *num1, double * const num2){
+    return *num1 - *num2;
+}
+
+// Zadanie 11
+int sumSqrs(const int *num1, int * const num2){
+    return (*num1 * *num1) + (*num2 * *num2);
+}
+
+// Zadanie 13
+int minPtr(int *a, int *b, int *c){
+    if (*a < *b && *a < *c){
+        return *a;
+    }else if (*b < *a && *b < *c){
+        return *b;
+    }else{
+        return *c;
+    }
+
+}
+
+// Zadanie 16
+void swap(int *ptr1, int *ptr2) {
+    int temp;
+
+    temp = *ptr1;
+    *ptr1 = *ptr2;
+    *ptr2 = temp;
 }
 
 
@@ -114,15 +162,61 @@ int main() {
        free(wynik3 - 1);
     }
 
-
     // Zadanie 6
     float *wynik4 = initFloats();
     if (wynik4 != NULL) {
-        printf("Wartosc 1: %.1f\n\n", *wynik4);
-        printf("Wartosc 2: %.1f\n\n", *(wynik4 + 1));
-        printf("Wartosc 3: %.1f\n\n", *(wynik4 + 2));
+        printf("Wartosc 1d: %.1f\n\n", *wynik4);
+        printf("Wartosc 2e: %.1f\n\n", *(wynik4 + 1));
+        printf("Wartosc 3f: %.1f\n\n", *(wynik4 + 2));
 
         free(wynik4);
     }
+
+
+    //Zadanie 7
+    float *wynik5 = initFlts();
+    if (wynik5 != NULL) {
+        printf("Wartosc 1g: %.1f\n\n", *wynik5);
+        printf("Wartosc 2h: %.1f\n\n", *(wynik5 - 1));
+        printf("Wartosc 3i: %.1f\n\n", *(wynik5 - 2));
+        printf("Wartosc 3j: %.1f\n\n", *(wynik5 - 3));
+
+        free(wynik5 - 3);
+    }
+
+    //Zadanie 8
+    int x8 = 5;
+    int y8 = 6;
+    int wynik8 = 0;
+    sumToPtr(&x8, &y8, &wynik8);
+    printf("sumToPtr to: %d\n\n", wynik8);
+
+    // Zadanie 10
+    double a10 = 10.5;
+    double b10 = 5.5;
+    double wynik10 = subPtrs(&a10, &b10);
+    printf("Wynik odejmowania: %.2f\n\n", wynik10);
+
+    // Zadanie 11
+    const int z11 = 2;
+    int x11 = 3;
+    int wynik11 = sumSqrs(&z11, &x11);
+    printf("Wynik sumSqrs to: %d\n\n", wynik11);
+
+    // Zadanie 13
+    int x13 = 9;
+    int y13 = 4;
+    int z13 = 3;
+    int wynik13 = minPtr(&x13, &y13, &z13);
+    printf("Wynik minPtr to: %d\n\n", wynik13);
+
+    // Zadanie 16
+    int a16 = 4;
+    int b16 = 8;
+    printf("Przed zmiana: a = %d, b = %d\n", a16, b16);
+    swap(&a16, &b16);
+    printf("Po zmianie swap: a = %d, b = %d\n", a16, b16);
+
+
     return 0;
 }
