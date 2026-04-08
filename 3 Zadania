@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//Zadanie 2
+int func(int a){
+    return a * a;
+}
+
+void applyFunction(int (*func)(int), int start, int end){
+    for (int i = start; i <= end; i++){
+        printf("Wynik dla %d: %d\n", i, func(i));
+    }
+}
+
+//Zadanie 6
+int Condition(int b){
+    return b;
+}
+
+int action(int c){
+    return c + 10;
+}
+
+int applyCondition(int (*Condition)(int), int (*action)(int), int value){
+    int x = Condition(value);
+
+
+    if (x == 1){
+        int y = action(value);
+        return y;
+    }else{
+        return value;
+    }
+}
+
+
+int main(){
+    //applyFunction(func, 1, 5);
+    
+    //int wynik = applyCondition(Condition, action, 6);
+    //printf("Wynik: %d", wynik);
+    return 0;
+}
+
