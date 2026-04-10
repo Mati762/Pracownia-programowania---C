@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Zadanie 1
+void findMaxValue(int numbers[], int size) {
+    int max = numbers[0];
+    for (int i = 1; i < size; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+    printf("Maksymalna wartosc (zad 1): %d\n", max);
+}
+
+// Zadanie 2
+double average(int n, int tab[]) {
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += tab[i];
+    }
+    return sum / n;
+}
+
+// Zadanie 3
+int sumSquares(int n, int tab[]) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += tab[i] * tab[i];
+    }
+    return sum;
+}
+
+// Zadanie 4
+void copyArr(int n, int tab1[], int tab2[]) {
+    for (int i = 0; i < n; i++) {
+        tab2[i] = tab1[i];
+    }
+}
+
+// Zadanie 5:
+void revCopy(int n, int tab1[], int tab2[]) {
+    for (int i = 0; i < n; i++) {
+        tab2[i] = tab1[n - 1 - i];
+    }
+}
+
+// Zadanie 6:
+void reverseArr(int tab[], int n) {
+    for (int i = 0; i < n / 2; i++) {
+        int temp = tab[i];
+        tab[i] = tab[n - 1 - i];
+        tab[n - 1 - i] = temp;
+    }
+}
+
+// Zadanie 7:
+int maxValue(int n, int tab[]) {
+    int max = tab[0];
+    for (int i = 1; i < n; i++) {
+        if (tab[i] > max) {
+            max = tab[i];
+        }
+    }
+    return max;
+}
+
+int main() {
+    int n = 5;
+    int t1[] = {1, 5, 3, 9, 2};
+    int t2[5];
+
+    // Test Zadanie 1
+    findMaxValue(t1, n);
+
+    // Test Zadanie 2
+    printf("Srednia (zad 2): %.2f\n", average(n, t1));
+
+    // Test Zadanie 3
+    printf("Suma kwadratow (zad 3): %d\n", sumSquares(n, t1));
+
+    // Test Zadanie 4
+    copyArr(n, t1, t2);
+    printf("Kopia (zad 4): %d, %d, %d, %d, %d\n", t2[0], t2[1], t2[2], t2[3], t2[4]);
+
+    // Test Zadanie 5
+    revCopy(n, t1, t2);
+    printf("Odwrotna kopia (zad 5): %d, %d, %d, %d, %d\n", t2[0], t2[1], t2[2], t2[3], t2[4]);
+
+    // Test Zadanie 6
+    reverseArr(t1, n);
+    printf("Odwrocona tablica (zad 6): %d, %d, %d, %d, %d\n", t1[0], t1[1], t1[2], t1[3], t1[4]);
+
+    // Test Zadanie 7
+    printf("Max wartosc (zad 7): %d\n", maxValue(n, t1));
+
+    return 0;
+}
