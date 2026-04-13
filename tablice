@@ -64,6 +64,36 @@ int maxValue(int n, int tab[]) {
     return max;
 }
 
+// Zadanie 27
+void increaseByIndex(int n, int * tab){
+    for (int i = 0; i < n; i++)
+        tab[i] += i;
+}
+
+//Zadanie 32
+int sumDivisibleBy3(unsigned int n, int * tab) {
+    int suma = 0;
+    for (int i = 0; i < n; i++) {
+        if (tab[i] % 3 == 0) {
+            suma += tab[i];
+        }
+    }
+    return suma;
+}
+
+
+// Zadanie 37
+int sumOdd(int n, int * tab){
+    int nieparzyste = 0;
+    for (int i = 0; i < n, i++){
+        if (tab[i] % 2 != 0){
+            nieparzyste += tab[i]
+        }
+    }
+    return nieparzyste
+}
+
+
 int main() {
     int n = 5;
     int t1[] = {1, 5, 3, 9, 2};
@@ -92,6 +122,20 @@ int main() {
 
     // Test Zadanie 7
     printf("Max wartosc (zad 7): %d\n", maxValue(n, t1));
+
+    //Test Zadanie 27
+    increaseByIndex(n, t1);
+    printf("Zadanie 27: %d, %d, %d, %d, %d\n", t1[0], t1[1], t1[2], t1[3], t1[4]);
+
+    // Test Zadanie 32
+    int wynik32 = sumDivisibleBy3(n, t1);
+    printf("Zadanie 32: %d", wynik32);
+
+
+    // Test Zadanie 37
+    int wynik37 = sumOdd;
+    printf("Zadanie 37: %d", wynik37);
+
 
     return 0;
 }
