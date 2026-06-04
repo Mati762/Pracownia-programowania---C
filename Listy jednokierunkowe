@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct element {
+    int x;
+    struct element * next;
+};
+
+
+int main() {
+    // Zadanie 1
+    struct element *lista = malloc(sizeof(struct element));
+    lista->x = 4;
+    lista->next = malloc(sizeof(struct element));
+    lista->next->x = 5;
+    lista->next->next = malloc(sizeof(struct element));
+    lista->next->next->x = -12;
+    lista->next->next->next = NULL;
+    struct element *wsk = lista;
+    while (wsk != NULL) {
+        printf("%d\n", wsk->x);
+        wsk = wsk->next;
+    }
+
+    // Zadanie 2
+    struct element * lista2 = malloc(sizeof(struct element));
+    lista2->next = malloc(sizeof(struct element));
+    lista2->next->x = 4;
+    lista2->next->next = malloc(sizeof(struct element));
+    lista2->next->next->x = 5;
+    lista2->next->next->next = malloc(sizeof(struct element));
+    lista2->next->next->next->x = -12;
+    lista2->next->next->next->next = NULL;
+    struct element *wsk2 = lista2->next;
+    while(wsk2 != NULL){
+        printf("%d\n", wsk2->x);
+        wsk2 = wsk2->next;
+    }
+
+    // Zadanie 3
+    
+    return 0;
+}

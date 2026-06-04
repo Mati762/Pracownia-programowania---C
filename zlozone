@@ -1,0 +1,87 @@
+#include <stdio.h>
+
+enum Day {
+    PON, WT, SR, CZW, PT, SOB, ND
+};
+
+void print_days(enum Day d, int n) {
+    if (n <= 0) {
+        return;
+    }
+
+    const char* nazwy_dni[] = {
+        "Poniedzialek", "Wtorek", "Sroda", "Czwartek", 
+        "Piatek", "Sobota", "Niedziela"
+    };
+
+    printf("%s\n", nazwy_dni[d]);
+
+    enum Day nastepny_dzien = (d + 1) % 7;
+    
+    print_days(nastepny_dzien, n - 1);
+}
+
+union Number {
+    int calkowita;
+    float wymierna;
+};
+
+struct WrappedNumber {
+    union Number n;
+    char aktywny_typ;
+};
+
+struct WrappedNumber init_from_stdin() {
+    struct WrappedNumber wn;
+    
+    printf("Chcesz wpisac (c)alkowita czy (w)ymierna?: ");
+    scanf(" %c", &wn.aktywny_typ);
+    
+    if (wn.aktywny_typ == 'c') {
+        printf("Podaj liczbe calkowita: ");
+        scanf("%d", &wn.n.calkowita);
+    } else if (wn.aktywny_typ == 'w') {
+        printf("Podaj liczbe wymierna: ");
+        scanf("%f", &wn.n.wymierna);
+    }
+    
+    return wn;
+}
+
+struct element {
+    int i;
+    struct element *next;
+};
+
+int main() {
+    printf("--- ZADANIE 18 ---\n");
+    print_days(PT, 4);
+    printf("\n");
+
+    printf("--- ZADANIE 19 ---\n");
+    struct WrappedNumber moja_liczba = init_from_stdin();
+    
+    if (moja_liczba.aktywny_typ == 'c') {
+        printf("Zapisano jako calkowita: %d\n", moja_liczba.n.calkowita);
+    } else if (moja_liczba.aktywny_typ == 'w') {
+        printf("Zapisano jako wymierna: %f\n", moja_liczba.n.wymierna);
+    }
+    printf("\n");
+
+    printf("--- ZADANIE 20 ---\n");
+    struct element el1, el2, el3;
+    
+    el1.i = 10;
+    el1.next = &el2;
+    
+    el2.i = 20;
+    el2.next = &el3;
+    
+    el3.i = 30;
+    el3.next = NULL;
+
+    printf("Stworzono elementy polaczone wskaznikami.\n");
+    printf("el1.i = %d, a nastepny element ma i = %d\n", el1.i, el1.next->i);
+
+    return 0;
+}
